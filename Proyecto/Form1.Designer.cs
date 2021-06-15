@@ -139,6 +139,10 @@
             this.label53 = new System.Windows.Forms.Label();
             this.txtCodigoPedido = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
+            this.CodigoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoTicket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -208,6 +212,7 @@
             this.btnIniciarPedido.TabIndex = 1;
             this.btnIniciarPedido.Text = "Iniciar Pedido";
             this.btnIniciarPedido.UseVisualStyleBackColor = false;
+            this.btnIniciarPedido.Click += new System.EventHandler(this.btnIniciarPedido_Click);
             // 
             // pictureBox1
             // 
@@ -246,6 +251,7 @@
             this.btnUsuario.TabIndex = 7;
             this.btnUsuario.Text = "Continuar";
             this.btnUsuario.UseVisualStyleBackColor = false;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // label3
             // 
@@ -352,6 +358,7 @@
             this.btnContinuarPedido.TabIndex = 32;
             this.btnContinuarPedido.Text = "Continuar";
             this.btnContinuarPedido.UseVisualStyleBackColor = false;
+            this.btnContinuarPedido.Click += new System.EventHandler(this.btnContinuarPedido_Click);
             // 
             // LbTotal
             // 
@@ -393,6 +400,7 @@
             this.btncalcular.TabIndex = 27;
             this.btncalcular.Text = "Calcular total y Comprar";
             this.btncalcular.UseVisualStyleBackColor = false;
+            this.btncalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // LbQue
             // 
@@ -710,6 +718,7 @@
             this.btnContinuarCombo.TabIndex = 29;
             this.btnContinuarCombo.Text = "Continuar";
             this.btnContinuarCombo.UseVisualStyleBackColor = false;
+            this.btnContinuarCombo.Click += new System.EventHandler(this.btnContinuarCombo_Click);
             // 
             // label10
             // 
@@ -731,6 +740,7 @@
             this.btnCombo.TabIndex = 26;
             this.btnCombo.Text = "Comprar / Saltar";
             this.btnCombo.UseVisualStyleBackColor = false;
+            this.btnCombo.Click += new System.EventHandler(this.btnCombo_Click);
             // 
             // label35
             // 
@@ -973,6 +983,7 @@
             this.btnContinuarBebida.TabIndex = 62;
             this.btnContinuarBebida.Text = "Continuar";
             this.btnContinuarBebida.UseVisualStyleBackColor = false;
+            this.btnContinuarBebida.Click += new System.EventHandler(this.btnContinuarBebida_Click);
             // 
             // Lb_Total
             // 
@@ -1014,6 +1025,7 @@
             this.btnBebida.TabIndex = 58;
             this.btnBebida.Text = "Calcular total";
             this.btnBebida.UseVisualStyleBackColor = false;
+            this.btnBebida.Click += new System.EventHandler(this.btnBebida_Click);
             // 
             // Lb_Fanta
             // 
@@ -1257,6 +1269,7 @@
             this.BtnGenerar.TabIndex = 18;
             this.BtnGenerar.Text = "Generar Ticket";
             this.BtnGenerar.UseVisualStyleBackColor = false;
+            this.BtnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
             // 
             // pictureBox13
             // 
@@ -1270,8 +1283,14 @@
             // 
             // DGVTicket
             // 
+            this.DGVTicket.AllowUserToAddRows = false;
             this.DGVTicket.BackgroundColor = System.Drawing.Color.Black;
             this.DGVTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVTicket.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CodigoPedido,
+            this.CodigoTicket,
+            this.CodigoUsuario,
+            this.NombreUsuario});
             this.DGVTicket.Location = new System.Drawing.Point(160, 204);
             this.DGVTicket.Name = "DGVTicket";
             this.DGVTicket.Size = new System.Drawing.Size(462, 69);
@@ -1288,6 +1307,7 @@
             this.BtnImprimir.TabIndex = 15;
             this.BtnImprimir.Text = "Imprimir ticket";
             this.BtnImprimir.UseVisualStyleBackColor = false;
+            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // label52
             // 
@@ -1334,6 +1354,7 @@
             this.button13.TabIndex = 19;
             this.button13.Text = "Finalizar";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // btnValidar
             // 
@@ -1345,6 +1366,7 @@
             this.btnValidar.TabIndex = 18;
             this.btnValidar.Text = "Validar";
             this.btnValidar.UseVisualStyleBackColor = false;
+            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
             // 
             // DGVPedido
             // 
@@ -1382,6 +1404,30 @@
             this.label54.Size = new System.Drawing.Size(131, 20);
             this.label54.TabIndex = 5;
             this.label54.Text = "Código generado";
+            // 
+            // CodigoPedido
+            // 
+            this.CodigoPedido.DataPropertyName = "CodigoPedido";
+            this.CodigoPedido.HeaderText = "CodigoPedido";
+            this.CodigoPedido.Name = "CodigoPedido";
+            // 
+            // CodigoTicket
+            // 
+            this.CodigoTicket.DataPropertyName = "CodigoTicket";
+            this.CodigoTicket.HeaderText = "CodigoTicket";
+            this.CodigoTicket.Name = "CodigoTicket";
+            // 
+            // CodigoUsuario
+            // 
+            this.CodigoUsuario.DataPropertyName = "CodigoUsuario";
+            this.CodigoUsuario.HeaderText = "CodigoUsuario";
+            this.CodigoUsuario.Name = "CodigoUsuario";
+            // 
+            // NombreUsuario
+            // 
+            this.NombreUsuario.DataPropertyName = "NombreUsuario";
+            this.NombreUsuario.HeaderText = "NombreUsuario";
+            this.NombreUsuario.Name = "NombreUsuario";
             // 
             // Form1
             // 
@@ -1545,6 +1591,10 @@
         private System.Windows.Forms.CheckBox ComboMaiz;
         private System.Windows.Forms.Button BtnGenerar;
         private System.Windows.Forms.CheckBox NoCombo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoTicket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreUsuario;
     }
 }
 
